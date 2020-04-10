@@ -17,6 +17,6 @@
 		</ul>
 	</nav>
 	
-	<div>Bienvenue dans l'application de gestion de vos commandes de pizzas.</div>
+	<div>Bienvenue dans l'application de gestion de vos commandes de pizzas (test).</div>
 </body>
 </html>
