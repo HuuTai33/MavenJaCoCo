@@ -7,9 +7,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.safari.SafariDriver;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
@@ -21,7 +23,7 @@ public class DuckDuckGoReferencementAcceptanceTest {
 	@Before
 	public void createWebDriver() {
 		webDriver = new SafariDriver();
-		webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+		// webDriver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
 	}
 
 	@After
@@ -37,9 +39,11 @@ public class DuckDuckGoReferencementAcceptanceTest {
 		// Va sur la page Commander
 		WebElement commandeButton = webDriver.findElement(By.linkText("Commander"));
 		commandeButton.click();
+		//new WebDriverWait(webDriver, 3).until(ExpectedConditions.presenceOfElementLocated(By.id("pizzaId")));
 
 		// Selectionne une pizza
 		WebElement selectPizza = webDriver.findElement(By.name("pizzaId"));
+		// Select selectPizza = new Select(webDriver.findElement(By.id("pizzaId")));
 		selectPizza.selectByIndex(1);
 
 		// Fourni un nom
@@ -53,6 +57,7 @@ public class DuckDuckGoReferencementAcceptanceTest {
 		// Clique sur le bouton Commander
 		WebElement commanderButton = webDriver.findElement(By.cssSelector("button"));
 		commanderButton.click();
+		//new WebDriverWait(webDriver, 3).until(ExpectedConditions.presenceOfElementLocated(By.id("recap-commande")));
 
 		// Verification de l'affiche de la page Récapitulatif de la commande
 		List<WebElement> result = webDriver.findElements(By.id("recap-commande"));
@@ -67,6 +72,7 @@ public class DuckDuckGoReferencementAcceptanceTest {
 		// Va sur la page Commander
 		WebElement commandeButton = webDriver.findElement(By.linkText("Commander"));
 		commandeButton.click();
+		//new WebDriverWait(webDriver, 3).until(ExpectedConditions.presenceOfElementLocated(By.id("pizzaId")));
 
 		// Ne selectionne pas de pizza
 
@@ -81,6 +87,7 @@ public class DuckDuckGoReferencementAcceptanceTest {
 		// Clique sur le bouton Commander
 		WebElement commanderButton = webDriver.findElement(By.cssSelector("button"));
 		commanderButton.click();
+		//new WebDriverWait(webDriver, 3).until(ExpectedConditions.presenceOfElementLocated(By.id("pizzaId")));
 
 		// Verification de l'affiche du message d'erreur pour la pizza non selectionnée
 		List<WebElement> result = webDriver.findElements(By.id("pizzaId.errors"));
@@ -95,9 +102,11 @@ public class DuckDuckGoReferencementAcceptanceTest {
 		// Va sur la page Commander
 		WebElement commandeButton = webDriver.findElement(By.linkText("Commander"));
 		commandeButton.click();
+		//new WebDriverWait(webDriver, 3).until(ExpectedConditions.presenceOfElementLocated(By.id("pizzaId")));
 
 		// Selectionne une pizza
 		WebElement selectPizza = webDriver.findElement(By.name("pizzaId"));
+		// Select selectPizza = new Select(webDriver.findElement(By.id("pizzaId")));
 		selectPizza.selectByIndex(1);
 
 		// Fourni un nom
@@ -109,6 +118,7 @@ public class DuckDuckGoReferencementAcceptanceTest {
 		// Clique sur le bouton Commander
 		WebElement commanderButton = webDriver.findElement(By.cssSelector("button"));
 		commanderButton.click();
+		//new WebDriverWait(webDriver, 3).until(ExpectedConditions.presenceOfElementLocated(By.id("pizzaId")));
 
 		// Verification de l'affiche du message d'erreur pour le numéro de téléphone non fourni
 		List<WebElement> result = webDriver.findElements(By.id("telephone.errors"));
